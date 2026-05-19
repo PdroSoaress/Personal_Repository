@@ -1,0 +1,64 @@
+
+
+INSERT INTO matricula(data_matricula, id_aluno, id_curso)
+VALUES('20251002', 12, 2),
+('20251003', 13, 3),
+('20251004', 14, 4),
+('20251005', 15, 5),
+('20251006', 16, 1),
+('20251007', 17, 2),
+('20251008', 18, 3),
+('20251009', 19, 4),
+('20251010', 20, 5);
+
+SELECT * FROM matricula;
+
+SELECT
+	a.nome,
+	c.nome_curso,
+	m.data_matricula
+FROM matricula AS m
+INNER JOIN aluno AS a
+ON m.id_aluno = a.id_aluno
+INNER JOIN curso AS c
+ON m.id_curso = c.id_curso;
+
+SELECT
+	a.nome,
+	c.nome_curso,
+	m.data_matricula
+FROM matricula AS m
+INNER JOIN aluno AS a
+ON m.id_aluno = a.id_aluno
+INNER JOIN curso AS c
+ON m.id_curso = c.id_curso
+WHERE m.id_curso = 2;
+
+SELECT
+	a.nome,
+	c.nome_curso,
+	m.data_matricula
+FROM matricula AS m
+INNER JOIN aluno AS a
+ON m.id_aluno = a.id_aluno
+INNER JOIN curso AS c
+ON m.id_curso = c.id_curso
+WHERE a.nome LIKE 'K%';
+
+SELECT * FROM aluno
+INNER JOIN curso ON curso.id_curso>0;
+
+SELECT
+	a.nome AS nome_do_aluno,
+	c.nome_curso AS nome_do_curso,
+	m.data_matricula AS data_da_matricula
+FROM matricula AS m
+INNER JOIN aluno AS a
+ON m.id_aluno = a.id_aluno
+INNER JOIN curso AS c
+ON m.id_curso = c.id_curso;
+	
+
+
+
+

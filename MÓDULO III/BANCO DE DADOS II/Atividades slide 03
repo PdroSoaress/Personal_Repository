@@ -1,0 +1,60 @@
+CREATE TABLE aluno(id_aluno SERIAL PRIMARY KEY, nome VARCHAR(120), email VARCHAR(120));
+
+CREATE TABLE curso(id_curso SERIAL PRIMARY KEY, nome_curso VARCHAR(120), carga_horaria INTEGER[6]);
+
+SELECT * FROM curso;
+
+SELECT * FROM aluno;
+
+SELECT * FROM matricula;
+
+CREATE TABLE matricula (
+ id_matricula SERIAL PRIMARY KEY,
+ data_matricula DATE,
+ id_aluno INTEGER,
+ CONSTRAINT fk_matricula_aluno
+ FOREIGN KEY (id_aluno)
+ REFERENCES aluno(id_aluno),
+ id_curso INTEGER,
+ CONSTRAINT fk_matricula_curso
+ FOREIGN KEY (id_curso)
+ REFERENCES curso(id_curso)
+);
+
+ALTER TABLE aluno ADD COLUMN telefone INTEGER[11];
+
+ALTER TABLE aluno ALTER COLUMN telefone TYPE VARCHAR(11);
+
+ALTER TABLE curso ALTER COLUMN nome_curso TYPE VARCHAR(150);
+
+ALTER TABLE curso DROP COLUMN carga_horaria;
+
+DELETE FROM aluno;
+
+INSERT INTO aluno(nome, email, telefone)
+VALUES
+('Lusca', 'lusca@gmail.com', '86912345678'),
+('Arthur', 'arthur@gmail.com', '86987654321'),
+('Missia', 'missia@gmail.com', '86913245678'),
+('João', 'JP@gmail.com', '86909876543'),
+('Igu', 'igu@gmail.com', '86909876544'),
+('Matheusu', 'matheusu@gmail.com', '86909876545'),
+('Carlao', 'rayssa@gmail.com', '86909876546'),
+('Kaue', 'kaue@gmail.com', '86909876547'),
+('Kaua', 'kaua@gmail.com', '86909876548'),
+('Predo', 'predo@gmail.com', '86909876549');
+
+INSERT INTO curso(nome_curso)
+VALUES
+('ADS'),
+('Marketing'),
+('ADM'),
+('Letras'),
+('Gastronomia');
+
+INSERT INTO matricula(data_matricula, id_aluno, id_curso)
+VALUES('20251001', 11, 1);
+
+
+
+
