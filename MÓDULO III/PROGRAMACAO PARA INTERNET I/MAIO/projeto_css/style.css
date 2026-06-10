@@ -1,5 +1,7 @@
 body {
-    background-color: #eeeeee;
+    background-image: url(Missia.jpg);
+    background-size:100%;
+    background-repeat: no-repeat;
 }
 h1 {
     color:blue;

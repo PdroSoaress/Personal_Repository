@@ -1,0 +1,45 @@
+ALTER TABLE cargo ADD
+CONSTRAINT fk_cargo_concurso
+FOREIGN KEY (id_concurso)
+REFERENCES concurso(id);
+
+ALTER TABLE cargo DROP
+CONSTRAINT fk_cargo_concurso;
+
+CREATE TABLE cota(id SERIAL PRIMARY KEY, descricao VARCHAR(200), percentual NUMERIC(10,2));
+CREATE TABLE candidato(id SERIAL PRIMARY KEY, nome VARCHAR(200), cpf VARCHAR(11), cidade VARCHAR(200));
+
+CREATE TABLE inscricao(id SERIAL PRIMARY KEY, data_inscricao DATE, id_candidato INTEGER, id_cargo INTEGER, id_cota INTEGER,
+CONSTRAINT fk_inscricao_candidato
+FOREIGN KEY (id_candidato)
+REFERENCES candidato(id),
+CONSTRAINT fk_inscricao_cargo
+FOREIGN KEY (id_cargo)
+REFERENCES cargo(id),
+CONSTRAINT fk_inscricao_cota
+FOREIGN KEY (id_cota)
+REFERENCES cota(id));
+
+CREATE TABLE resultado(id SERIAL PRIMARY KEY, nota_objetiva INTEGER, nota_redacao INTEGER, situacao VARCHAR(30),
+id_inscricao INTEGER,
+CONSTRAINT fk_resultado_inscricao
+FOREIGN KEY (id_inscricao)
+REFERENCES inscricao(id)
+);
+
+
+ALTER TABLE candidato ADD COLUMN data_nascimento DATE;
+ALTER TABLE cargo ADD COLUMN valor_inscricao NUMERIC(10,2);
+ALTER TABLE inscricao ADD COLUMN status_pagamento BOOLEAN;
+ALTER TABLE candidato ALTER COLUMN nome TYPE VARCHAR(230);
+ALTER TABLE concurso ALTER COLUMN nome TYPE VARCHAR(150);
+
+ALTER TABLE inscricao ADD COLUMN temporaria BOOLEAN;
+
+ALTER TABLE inscricao DROP COLUMN temporaria;
+
+
+INSERT INTO concurso(nome, ano, organizadora)
+VALUES('Concurso IFCE', '20250101')
+
+
