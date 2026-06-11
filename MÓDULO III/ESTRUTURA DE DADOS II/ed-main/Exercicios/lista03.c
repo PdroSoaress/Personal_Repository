@@ -399,9 +399,6 @@ int ehBalanceada(No *raiz) {
    multiplas chaves, e os filhos ficam entre as chaves.
    ============================================================ */
 
-/* ============================================================
-   MAIN - demonstracao das funcoes e menu interativo
-   ============================================================ */
 int main(void) {
     printf("=== Lista 03 - Arvores Binarias de Busca (ABB) ===\n\n");
 

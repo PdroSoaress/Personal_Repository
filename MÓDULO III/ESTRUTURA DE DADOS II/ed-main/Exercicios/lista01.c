@@ -1,12 +1,9 @@
 /*
 =====================================
   LISTA DE EXERCICIOS 01 - ARVORES
-  Estruturas de Dados II - Modulo III
-=====================================
 */
 
 /*
-PARTE 1 - QUESTOES CONCEITUAIS
 
 01) c
 02) b
@@ -53,7 +50,7 @@ PARTE 1 - QUESTOES CONCEITUAIS
              /
             I                 <- folha (nivel 3)
 
-    - Folhas: E (com filho I tornando-a interna), I, F, G, H, C, D sem filhos = C, F, G, H, I
+    - Folhas: C, F, G, H, I
     - Altura da arvore: 3 (caminho A -> B -> E -> I)
     - Grau da arvore: 3 (no A possui 3 filhos)
 */
@@ -104,7 +101,6 @@ void inserirFilho(No *pai, int valorFilho) {
     }
     No *novoFilho = criarNo(valorFilho);
 
-    /* se nao tem filhos ainda, torna-se o primeiro filho */
     if (pai->primeiroFilho == NULL) {
         pai->primeiroFilho = novoFilho;
     } else {
@@ -253,9 +249,7 @@ void liberarArvore(No *raiz) {
     free(raiz);
 }
 
-/* ============================================================
-   MAIN - demonstracao de todas as funcoes
-   ============================================================ */
+
 int main(void) {
 
     /*

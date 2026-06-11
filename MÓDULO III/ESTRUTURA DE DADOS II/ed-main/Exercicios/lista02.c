@@ -1,19 +1,16 @@
 /*
 =============================================
   LISTA DE EXERCICIOS 02 - ARVORES BINARIAS
-  Estruturas de Dados II - Modulo III
-=============================================
 */
 
 /*
-PARTE 1 - QUESTOES CONCEITUAIS
 
-01) b - Cada no pode possuir no maximo dois filhos
+01) b - Cada no pode possuir no maximo dois filhoss
 02) c - Cada no pode ter filho esquerdo e direito
-03) c - Pre-ordem  (Raiz -> Esquerda -> Direita)
-04) b - Em ordem   (Esquerda -> Raiz -> Direita)
-05) a - Pos-ordem  (Esquerda -> Direita -> Raiz)
-06) b - Possui todos os niveis completos, exceto possivelmente o ultimo
+03) c - Pré-ordem
+04) b - Em ordem  
+05) a - Pós-ordem  
+06) b - Possui todos os niveis completos, excet possivelmente o ultimo
 
 07) Arvore binaria cheia e a arvore onde todos os nos internos tem dois filhos
     e no ultimo nivel ha apenas folhas, sem filhos.
@@ -57,9 +54,6 @@ typedef struct No {
     struct No *dir;
 } No;
 
-/* ============================================================
-   Funcao auxiliar: cria um novo no
-   ============================================================ */
 No* criarNo(int valor) {
     No *novo = (No*) malloc(sizeof(No));
     if (novo == NULL) {
@@ -141,9 +135,8 @@ int contarNos(No *raiz) {
     return 1 + contarNos(raiz->esq) + contarNos(raiz->dir);
 }
 
-/* ============================================================
-   42) Calcula a altura da arvore binaria
-   ============================================================ */
+/* ===================
+   42) Calcula a altura da arvore binari */
 int calcularAltura(No *raiz) {
     if (raiz == NULL) return -1;
     int altEsq = calcularAltura(raiz->esq);
@@ -151,18 +144,18 @@ int calcularAltura(No *raiz) {
     return 1 + (altEsq > altDir ? altEsq : altDir);
 }
 
-/* ============================================================
+/* 
    43) Conta quantos nos folhas existem
-   ============================================================ */
+*/
 int contarFolhas(No *raiz) {
     if (raiz == NULL) return 0;
     if (raiz->esq == NULL && raiz->dir == NULL) return 1;
     return contarFolhas(raiz->esq) + contarFolhas(raiz->dir);
 }
 
-/* ============================================================
+/* 
    44) Espelha uma arvore binaria (inverte esq e dir)
-   ============================================================ */
+  */
 void espelharArvore(No *raiz) {
     if (raiz == NULL) return;
 
