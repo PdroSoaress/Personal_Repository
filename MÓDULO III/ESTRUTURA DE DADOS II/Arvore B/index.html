@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Árvore B-Tree</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel controls">
+        <h1>Árvore B-Tree</h1>
+        <p>Insira, remova e busque valores em uma B-Tree visual.</p>
+
+        <div class="input-row">
+          <input id="keyInput" type="number" placeholder="Digite um número" />
+          <button id="insertBtn">Inserir</button>
+        </div>
+
+        <div class="button-row">
+          <button id="deleteBtn" class="secondary">Remover</button>
+          <button id="searchBtn" class="secondary">Buscar</button>
+          <button id="exampleBtn" class="secondary">Exemplo</button>
+          <button id="clearBtn" class="ghost">Limpar</button>
+        </div>
+
+        <div id="status" class="status">Árvore vazia.</div>
+      </section>
+
+      <section class="panel tree-panel">
+        <div class="legend">
+          <span class="legend-item"><span class="dot black"></span> Nó B-Tree</span>
+        </div>
+        <div id="treeRoot" class="tree-root"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

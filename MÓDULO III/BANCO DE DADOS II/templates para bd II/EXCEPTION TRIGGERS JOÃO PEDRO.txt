@@ -1,0 +1,28 @@
+-- Não permitir venda sem estoque
+IF (SELECT estoque
+FROM PRODUTO
+WHERE id = NEW.id_produto) < NEW.quantidade
+THEN
+
+RAISE EXCEPTION
+'Estoque Insuficiente';
+
+END IF;
+
+IF NEW.preco < 3 THEN ---se o preço mínimo fosse apenas 3 reais
+    RAISE EXCEPTION ' O preço deve ser maior ou igual a 3'
+END IF;
+
+---não permitir estoque negativo ou estoque maior que 100
+IF NEW.estoque > 100 THEN
+    RAISE EXCEPTION ' O estoque não possa ser maior do que 100'
+END IF;
+
+IF NEW.quantidade > 10 THEN
+    RAISE EXCEPTION 'Máximo de 10 unidades por pedido'
+END IF;
+
+---não permitir pedidos com datas antes de 2026
+IF NEW.data_pedido < '2026-01-01' THEN
+    RAISE EXCEPTION 'Data Inválida';
+END IF;

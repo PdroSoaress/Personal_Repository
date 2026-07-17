@@ -1,0 +1,26 @@
+Possiveis questões:
+
+Situação da tabela o kfold resolve...
+
+Quanto mais se varia as amostras e mais vezes se executa, mais confiavel o resultado.
+
+O assunto principal é o kfold.
+
+Possível questão: O que é o Kfold?
+
+Resposta:
+
+Possivel questão mais longa: Explicar o processo do Kfold por completo.
+
+Resposta:
+
+Pergunta possivel: Mostrar imagem e perguntar quanto é o k-fold da imagem, perguntar porcentagem também.
+
+
+Figura, conceito de kfold e identificar qual o kfold, qual a porcentagem do kfold baseado no k-fold
+
+Os mais comuns são 5 e 10.
+
+O kfold avançado é utilizado quando tem muitas amostras aí o kfold é aplicado em apenas 80% do dataset e 20% ficam totalmente isolado.
+
+
